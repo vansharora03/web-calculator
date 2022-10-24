@@ -21,6 +21,7 @@ let lastNum = "";
 let usingResult = false;
 let currentOperation = null;
 let divideByZero = false;
+let currentNum = "first";
 
 const decimalButtonClicked = function(e) {
     if(display.textContent.includes(".")) return;
@@ -38,8 +39,10 @@ const digitButtonClicked = function(e) {
     }
     if(!currentOperation) {
         firstNum += e.target.textContent;
+        currentNum = 'first';
     } else {
         lastNum += e.target.textContent;
+        currentNum = 'last';
     }
     display.textContent += e.target.textContent;
 }
@@ -97,12 +100,30 @@ const equalsButtonClicked = function() {
     display.textContent = (result - Math.floor(result) < 0.0001)? result : result.toFixed(4);
 }
 
+const deleteButtonClicked = function() {
+    if(divideByZero) {
+        clear();
+        divideByZero = false;
+    }
+    if(!display.textContent) return;
+        if(currentNum === "first") {
+            console.log("Display: " + display.textContent + "\n" + "First Num: " + firstNum);
+            firstNum = firstNum.slice(0, -1);
+            display.textContent = display.textContent.slice(0, -1);
+        }
+        if (currentNum === "last") {
+        lastNum = lastNum.slice(0, -1);
+        display.textContent = display.textContent.slice(0, -1);
+    }
+}
+
 //Event Listeners
 decimalButton.addEventListener('click', decimalButtonClicked);
 digitButtons.forEach(digitButton => digitButton.addEventListener('click', digitButtonClicked));
 operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', operatorButtonClicked));
 clearButton.addEventListener('click', clear);
 equalsButton.addEventListener('click', equalsButtonClicked);
+deleteButton.addEventListener('click', deleteButtonClicked);
 
 
 
