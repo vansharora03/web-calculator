@@ -1,6 +1,20 @@
-h1 {
-    text-align: center;
+body {
 }
+h1 p {
+    text-align: center;
+    font-family: "Roboto Light", ui-rounded;
+    font-weight: normal;
+}
+
+#calculator {
+    background-color: silver;
+    width: 300px;
+    height: 275px;
+    margin: auto;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
 #display {
     height: 50px;
     border: 1px solid black;
@@ -9,10 +23,11 @@ h1 {
     margin: auto;
     text-align: start;
     font-size: 50px;
-    background-color: palegoldenrod;
+    background-color: grey;
 }
 
 #buttonDiv {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
@@ -49,7 +64,7 @@ h1 {
 #extras {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 
 

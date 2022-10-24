@@ -51,6 +51,9 @@ const digitButtonClicked = function(e) {
 const operatorButtonClicked = function(e) {
     if(currentOperation) {
         equalsButtonClicked();
+        if(divideByZero) {
+            return;
+        }
     }
     if(divideByZero) {
         clear();
@@ -87,7 +90,9 @@ const equalsButtonClicked = function() {
         case "divide":
             operator = divide;
             if(parseFloat(lastNum) === 0) {
-                display.textContent = "DONT DIVIDE BY ZERO, PLEASE!";
+                display.textContent = "divzero err";
+                lastNum = "";
+                firstNum = "";
                 divideByZero = true;
                 return;
             }
