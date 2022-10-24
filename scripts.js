@@ -6,6 +6,7 @@ const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('#buttonClear');
 const equalsButton = document.querySelector('#buttonEquals');
 const deleteButton = document.querySelector('#buttonDelete');
+const negativeButton = document.querySelector('#buttonNegative');
 
 //Operators
 const add = (a, b) => a + b;
@@ -48,6 +49,9 @@ const digitButtonClicked = function(e) {
 }
 
 const operatorButtonClicked = function(e) {
+    if(currentOperation) {
+        equalsButtonClicked();
+    }
     if(divideByZero) {
         clear();
         divideByZero = false;
@@ -117,6 +121,28 @@ const deleteButtonClicked = function() {
     }
 }
 
+const negativeButtonClicked = function() {
+    if(display.textContent) return;
+    else if(display.textContent.includes("-")) return;
+    else if(divideByZero) {
+        clear();
+        divideByZero = false;
+    }
+    else if(usingResult && !currentOperation) {
+        clear();
+        usingResult = false;
+    }
+    else if(!currentOperation) {
+        firstNum += '-';
+        currentNum = 'first';
+    } else {
+        lastNum += '-';
+        currentNum = 'last';
+    }
+    display.textContent += '-';
+
+}
+
 //Event Listeners
 decimalButton.addEventListener('click', decimalButtonClicked);
 digitButtons.forEach(digitButton => digitButton.addEventListener('click', digitButtonClicked));
@@ -124,6 +150,7 @@ operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click
 clearButton.addEventListener('click', clear);
 equalsButton.addEventListener('click', equalsButtonClicked);
 deleteButton.addEventListener('click', deleteButtonClicked);
+negativeButton.addEventListener('click', negativeButtonClicked);
 
 
 

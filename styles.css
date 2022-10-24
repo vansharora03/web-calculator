@@ -1,8 +1,80 @@
+h1 {
+    text-align: center;
+}
 #display {
-    height: 20px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 275px;
+    margin: auto;
+    text-align: start;
+    font-size: 50px;
+    background-color: palegoldenrod;
 }
 
 #buttonDiv {
     display: flex;
-
+    justify-content: center;
 }
+
+#centerNumPad {
+    display: flex;
+    flex-direction: column;
+    size: 1000px
+}
+
+.row {
+    size: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.row>button {
+    width: 50px;
+    height: 50px;
+    background-color: cadetblue;
+}
+
+#operators {
+    display: flex;
+    flex-direction: column;
+}
+
+.operator {
+    width: 50px;
+    height: 50px;
+    background-color: crimson;
+}
+
+#extras {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#extras>button {
+    width: 75px;
+    height: 50px;
+    background-color: mediumpurple;
+}
+
+#buttonNegative {
+    width: 50px;
+    height: 50px;
+}
+
+#buttonEquals {
+    background-color: gold;
+}
+
+button {
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+button:hover {
+    filter: brightness(85%);
+}
+
+
