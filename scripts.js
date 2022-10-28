@@ -90,7 +90,7 @@ const equalsButtonClicked = function() {
         case "divide":
             operator = divide;
             if(parseFloat(lastNum) === 0) {
-                display.textContent = "divzero err";
+                display.textContent = "Error:D/0";
                 lastNum = "";
                 firstNum = "";
                 divideByZero = true;

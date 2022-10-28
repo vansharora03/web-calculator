@@ -1,9 +1,9 @@
+
 body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 h1 p {
-    text-align: center;
-    font-family: "Roboto Light", ui-rounded;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #calculator {
@@ -22,7 +22,7 @@ h1 p {
     width: 275px;
     margin: auto;
     text-align: start;
-    font-size: 50px;
+    font-size: 40px;
     background-color: grey;
 }
 
