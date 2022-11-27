@@ -1,21 +1,37 @@
-
+* {
+    --main-bg-color: #3f3f46;
+    --title-color: #9ca3af;
+    --calculator-bg-color: #262626;
+    --digit-button-color: #7dd3fc;
+    --display-color: #171717;
+    --operator-color: #38bdf8;
+    --extras-color: #0284c7;
+    --equals-color: #e0f2fe;
+}
 body {
+    color: var(--title-color);
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 h1 p {
+    color: whitesmoke;
     font-weight: bold;
 }
 
 #calculator {
-    background-color: silver;
+    background-color: var(--calculator-bg-color);
     width: 300px;
     height: 275px;
-    margin: auto;
     padding-top: 20px;
     border-radius: 10px;
 }
 
 #display {
+    padding-left: 5px;
     height: 50px;
     border: 1px solid black;
     border-radius: 10px;
@@ -23,7 +39,7 @@ h1 p {
     margin: auto;
     text-align: start;
     font-size: 40px;
-    background-color: grey;
+    background-color: var(--display-color);
 }
 
 #buttonDiv {
@@ -45,9 +61,11 @@ h1 p {
 }
 
 .row>button {
-    width: 50px;
-    height: 50px;
-    background-color: cadetblue;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--digit-button-color);
 }
 
 #operators {
@@ -56,9 +74,11 @@ h1 p {
 }
 
 .operator {
-    width: 50px;
-    height: 50px;
-    background-color: crimson;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: var(--operator-color);
 }
 
 #extras {
@@ -69,9 +89,11 @@ h1 p {
 
 
 #extras>button {
-    width: 75px;
-    height: 50px;
-    background-color: mediumpurple;
+    width: 65px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: var(--extras-color);
 }
 
 #buttonNegative {
@@ -80,7 +102,7 @@ h1 p {
 }
 
 #buttonEquals {
-    background-color: gold;
+    background-color: var(--equals-color);
 }
 
 button {
@@ -90,6 +112,11 @@ button {
 
 button:hover {
     filter: brightness(85%);
+    cursor: pointer;
+}
+
+.currentOperation {
+    border: 5px solid #ca8a04;
 }
 
 

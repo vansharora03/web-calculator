@@ -30,6 +30,11 @@ const decimalButtonClicked = function(e) {
 }
 
 const digitButtonClicked = function(e) {
+    document.querySelectorAll('.operator').forEach(operator => {
+        if(operator.classList.contains('currentOperation')) {
+            operator.classList.remove('currentOperation');
+        }
+    });
     if(divideByZero) {
         clear();
         divideByZero = false;
@@ -62,6 +67,15 @@ const operatorButtonClicked = function(e) {
     if(firstNum === "") return;
     display.textContent = "";
     currentOperation = e.target.id;
+    document.querySelectorAll('.operator').forEach(operator => {
+        if(operator.id === currentOperation) {
+            operator.classList.add('currentOperation')
+        } else {
+            if(operator.classList.contains('currentOperation')) {
+                operator.classList.remove('currentOperation');
+            }
+        }
+    })
 }
 
 const clear = function() {
@@ -75,6 +89,11 @@ const clear = function() {
 }
 
 const equalsButtonClicked = function() {
+    document.querySelectorAll('.operator').forEach(operator => {
+        if(operator.classList.contains('currentOperation')) {
+            operator.classList.remove('currentOperation');
+        }
+    });
     if(lastNum === "") return firstNum;
     let operator;
     switch(currentOperation) {
