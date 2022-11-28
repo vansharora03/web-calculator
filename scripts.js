@@ -8,6 +8,7 @@ const equalsButton = document.querySelector('#buttonEquals');
 const deleteButton = document.querySelector('#buttonDelete');
 const negativeButton = document.querySelector('#buttonNegative');
 
+
 //Operators
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -54,6 +55,7 @@ const digitButtonClicked = function(e) {
 }
 
 const operatorButtonClicked = function(e) {
+    if(!firstNum) return;
     if(currentOperation) {
         equalsButtonClicked();
         if(divideByZero) {
@@ -64,7 +66,6 @@ const operatorButtonClicked = function(e) {
         clear();
         divideByZero = false;
     }
-    if(firstNum === "") return;
     display.textContent = "";
     currentOperation = e.target.id;
     document.querySelectorAll('.operator').forEach(operator => {
@@ -146,17 +147,21 @@ const deleteButtonClicked = function() {
 }
 
 const negativeButtonClicked = function() {
-    if(display.textContent) return;
-    else if(display.textContent.includes("-")) return;
-    else if(divideByZero) {
+    document.querySelectorAll('.operator').forEach(operator => {
+        if(operator.classList.contains('currentOperation')) {
+            operator.classList.remove('currentOperation');
+        }
+    });
+    if(display.textContent !== "") return;
+    if(divideByZero) {
         clear();
         divideByZero = false;
     }
-    else if(usingResult && !currentOperation) {
+    if(usingResult && !currentOperation) {
         clear();
         usingResult = false;
     }
-    else if(!currentOperation) {
+    if(!currentOperation) {
         firstNum += '-';
         currentNum = 'first';
     } else {
